@@ -904,3 +904,176 @@ body {
         font-size: 1.8rem;
     }
 }
+/* ===== ESTILOS PARA PÁGINA INDIVIDUAL DE ARTISTA ===== */
+
+/* Contenedor principal para todas las páginas */
+.page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Breadcrumbs mejorados - REEMPLAZA los existentes */
+.breadcrumbs {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 24px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.breadcrumbs a {
+    color: var(--secondary-pink);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
+.breadcrumbs a:hover {
+    background: rgba(219, 145, 214, 0.1);
+    color: var(--secondary-coral);
+}
+
+.breadcrumbs span {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Sección principal del artista */
+.artist-main-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.artist-image-container {
+    flex-shrink: 0;
+}
+
+.artist-main-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--secondary-pink);
+    box-shadow: 0 15px 35px rgba(219, 145, 214, 0.3);
+    transition: all 0.3s ease;
+}
+
+.artist-main-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(219, 145, 214, 0.4);
+}
+
+.artist-content {
+    flex: 1;
+    max-width: 800px; /* Para mejorar la legibilidad */
+}
+
+.artist-main-name {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--secondary-pink);
+    line-height: 1.2;
+}
+
+.artist-main-description {
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 24px;
+    max-width: 65ch; /* Máximo 65 caracteres por línea para mejor legibilidad */
+}
+
+.artist-social-links {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(219, 145, 214, 0.3);
+    border-radius: 50%;
+    color: var(--white);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.social-link:hover {
+    background: var(--secondary-pink);
+    border-color: var(--secondary-pink);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(219, 145, 214, 0.3);
+}
+
+/* Responsive para la sección del artista */
+@media (max-width: 768px) {
+    .page-container {
+        padding: 0 20px;
+    }
+    
+    .breadcrumbs {
+        padding: 16px 20px;
+        font-size: 13px;
+    }
+    
+    .artist-main-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 32px 20px;
+        gap: 24px;
+    }
+    
+    .artist-main-image {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto;
+    }
+    
+    .artist-main-name {
+        font-size: 2rem;
+    }
+    
+    .artist-main-description {
+        font-size: 15px;
+        text-align: left;
+        max-width: 100%;
+    }
+    
+    .artist-social-links {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-container {
+        padding: 0 16px;
+    }
+    
+    .breadcrumbs {
+        padding: 12px 16px;
+    }
+    
+    .artist-main-section {
+        padding: 24px 16px;
+        gap: 20px;
+    }
+    
+    .artist-main-name {
+        font-size: 1.75rem;
+    }
+}
