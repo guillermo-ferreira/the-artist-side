@@ -141,7 +141,7 @@ function handleRecommendationFilters(recommendations) {
 }
 
 // Función para manejar la navegación entre artistas
-function setupArtistNavigation() {
+//function setupArtistNavigation() {
     const allArtists = Object.keys(window.artistsData || {});
     const currentArtistId = getUrlParameter('id');
     const currentIndex = allArtists.indexOf(currentArtistId);
