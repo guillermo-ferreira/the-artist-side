@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="page-title">Bad Bunny - The Artist Side</title>
+    <title>Artista - The Artist Side</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-container">
-            <!-- Logo -->
-            <div class="logo">
+            <a href="index.html" class="logo">
                 <div class="logo-icon">
                     <div class="equalizer">
                         <div class="bar"></div>
@@ -22,16 +21,14 @@
                     </div>
                 </div>
                 <span class="logo-text">the artist side</span>
-            </div>
+            </a>
             
-            <!-- Navigation Links -->
             <div class="nav-links">
                 <a href="index.html" class="nav-link">Inicio</a>
                 <a href="artistas.html" class="nav-link">Artistas</a>
                 <a href="contacto.html" class="nav-link">Contacto</a>
             </div>
             
-            <!-- Search Bar -->
             <div class="search-container">
                 <input type="text" class="search-input" placeholder="Busca por artista, álbum...">
                 <button class="search-btn">Buscar</button>
@@ -39,94 +36,67 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
     <main class="main-content">
-        <!-- Breadcrumb -->
-        <section class="breadcrumb">
-            <div class="breadcrumb-container">
-                <a href="index.html">Home</a>
-                <span class="separator">></span>
-                <a href="artistas.html">Artistas</a>
-                <span class="separator">></span>
-                <span id="current-artist">Bad Bunny</span>
+        <!-- Breadcrumbs -->
+        <section class="breadcrumbs">
+            <div class="breadcrumbs-container">
+                <a href="index.html">Home</a> > 
+                <a href="artistas.html">Artistas</a> > 
+                <span id="artist-breadcrumb">Artista</span>
             </div>
         </section>
 
         <!-- Artist Header -->
         <section class="artist-header">
             <div class="artist-header-content">
-                <div class="artist-image-large">
-                    <img id="artist-main-image" src="https://via.placeholder.com/200x200/6366f1/ffffff?text=BB" alt="Bad Bunny">
+                <div class="artist-image-container">
+                    <img id="artist-image" src="" alt="" class="artist-main-image">
                 </div>
-                <div class="artist-info-main">
-                    <h1 id="artist-name">Bad Bunny</h1>
-                    <p id="artist-real-name">Benito Antonio Martínez Ocasio</p>
-                    <p id="artist-details">Almirante Sur, Vega Baja, 10 de marzo de 1994</p>
-                    <p id="artist-description">Rapero, cantante, compositor, productor y exluchador puertorriqueño.</p>
-                    
-                    <div class="artist-stats-main">
-                        <div class="stat-main">
-                            <span class="stat-number" id="total-recommendations">15</span>
-                            <span class="stat-label">Recomendaciones</span>
-                        </div>
-                        <div class="stat-main">
-                            <span class="stat-number" id="total-sources">8</span>
-                            <span class="stat-label">Fuentes</span>
-                        </div>
+                <div class="artist-info">
+                    <h1 id="artist-name" class="artist-title"></h1>
+                    <p id="artist-description" class="artist-bio"></p>
+                    <div class="artist-social">
+                        <!-- Iconos sociales se pueden agregar después -->
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Filters -->
-        <section class="recommendations-filters">
-            <div class="filters-container">
-                <div class="filter-group">
-                    <label class="filter-label">Filtrar por tipo:</label>
-                    <div class="filter-buttons">
-                        <button class="filter-btn active" data-filter="all">Todos</button>
-                        <button class="filter-btn" data-filter="album">Álbumes</button>
-                        <button class="filter-btn" data-filter="song">Canciones</button>
-                        <button class="filter-btn" data-filter="artist">Artistas</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Recommendations Grid -->
+        <!-- Recommendations Section -->
         <section class="recommendations-section">
             <div class="recommendations-container">
-                <h2 class="section-title">Descubre las canciones, álbumes o artistas que te recomendaría <span id="artist-name-title">Bad Bunny</span></h2>
-                
-                <div class="recommendations-grid" id="recommendations-grid">
-                    <!-- Las recomendaciones se cargarán dinámicamente -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Spotify Playlist Section -->
-        <section class="playlist-section">
-            <div class="playlist-container">
-                <h2 class="playlist-title">ESCUCHA NUESTRA PLAYLIST CON TODO ESTE CONTENIDO EN</h2>
-                <div class="spotify-section">
-                    <div class="spotify-logo">
-                        <span>SPOTIFY</span>
-                    </div>
-                    <p class="playlist-name" id="playlist-name">Bad Bunny's side</p>
-                    <button class="spotify-btn" id="spotify-playlist-btn">
-                        <span>▶</span> Escuchar en Spotify
+                <div class="section-header">
+                    <h2 class="section-title">
+                        Descubre las canciones, álbumes o artistas que te recomendaría 
+                        <span id="artist-name-recommendations" class="highlight"></span>
+                    </h2>
+                    <button class="filter-btn-individual">
+                        Filtrar <span class="filter-icon">⚙️</span>
                     </button>
+                </div>
+                
+                <div class="coming-soon" id="coming-soon">
+                    <div class="coming-soon-content">
+                        <h3>🎵 Próximamente</h3>
+                        <p>Estamos recopilando las recomendaciones musicales de este artista.</p>
+                        <p><strong>¡Vuelve pronto para descubrir qué música le gusta!</strong></p>
+                        <a href="artistas.html" class="back-btn">← Ver otros artistas</a>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <p>&copy; 2024 The Artist Side. Hecho con ❤️ para los amantes de la música.</p>
         </div>
     </footer>
+
+    <script src="artista-individual.js"></script>
+</body>
+</html>
+
 
     <script src="script.js"></script>
     <script src="artista-individual.js"></script>
