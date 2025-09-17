@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto y Colabora - The Artist Side</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <div class="logo">
+                <div class="logo-icon">
+                    <div class="equalizer">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+                </div>
+                <span class="logo-text">the artist side</span>
+            </div>
+            
+            <!-- Navigation Links -->
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="artistas.html" class="nav-link">Artistas</a>
+                <a href="contacto.html" class="nav-link active">Contacto</a>
+            </div>
+            
+            <!-- Search Bar -->
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Busca por artista, álbum...">
+                <button class="search-btn">Buscar</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header Section -->
+        <section class="page-header">
+            <div class="header-content">
+                <h1 class="page-title">Contacto y <span class="highlight">Colabora</span></h1>
+                <p class="page-description">
+                    Todo esto lo hacemos por nosotros y para vosotros, para aportar nuestro granito de arena a todos aquellos que aman la música y respetan a los artistas tanto como lo hacemos en The Artist Side.
+                </p>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section class="contact-section">
+            <div class="contact-container">
+                <div class="contact-grid">
+                    <!-- Contact Form -->
+                    <div class="contact-form-container">
+                        <h2 class="form-title">Envíanos un mensaje</h2>
+                        <p class="form-description">¿Tienes alguna pregunta, sugerencia o quieres colaborar con nosotros?</p>
+                        
+                        <form class="contact-form" id="contact-form">
+                            <div class="form-group">
+                                <label for="name">Nombre *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Asunto *</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Selecciona un asunto</option>
+                                    <option value="colaboracion">Quiero colaborar</option>
+                                    <option value="recomendacion">Tengo una recomendación</option>
+                                    <option value="consulta">Consulta general</option>
+                                    <option value="error">Reportar un error</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Mensaje *</label>
+                                <textarea id="message" name="message" rows="6" placeholder="Cuéntanos qué tienes en mente..." required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">
+                                <span>Enviar mensaje</span>
+                                <div class="btn-icon">→</div>
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <!-- Collaboration Info -->
+                    <div class="collaboration-info">
+                        <h2 class="info-title">¿Cómo colaborar?</h2>
+                        
+                        <div class="collaboration-card">
+                            <div class="card-icon">🎵</div>
+                            <h3>Comparte recomendaciones</h3>
+                            <p>¿Conoces alguna entrevista, tweet o artículo donde un artista recomiende música? ¡Compártelo con nosotros!</p>
+                        </div>
+                        
+                        <div class="collaboration-card">
+                            <div class="card-icon">🔍</div>
+                            <h3>Ayúdanos a investigar</h3>
+                            <p>Si eres fan de algún artista y conoces sus gustos musicales, ayúdanos a documentar sus recomendaciones.</p>
+                        </div>
+                        
+                        <div class="collaboration-card">
+                            <div class="card-icon">📝</div>
+                            <h3>Sugiere artistas</h3>
+                            <p>¿Hay algún artista que te gustaría ver en nuestra plataforma? Sugiérelo y trabajaremos en incluirlo.</p>
+                        </div>
+                        
+                        <div class="direct-contact">
+                            <h3>Contacto directo</h3>
+                            <p>También puedes escribirnos directamente a:</p>
+                            <a href="mailto:info@theartistside.com" class="email-link">
+                                info@theartistside.com
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Support Section -->
+        <section class="support-section">
+            <div class="support-container">
+                <h2 class="support-title">Apoya el proyecto</h2>
+                <p class="support-description">
+                    Si te gusta lo que hacemos y quieres apoyar el proyecto, puedes invitarnos a un café ☕
+                </p>
+                <button class="support-btn" id="buy-coffee-btn">
+                    <span>☕</span> Buy me a coffee
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">Cookies</a>
+                <span>|</span>
+                <a href="#">Privacy Policy</a>
+                <span>|</span>
+                <a href="contacto.html">Contact</a>
+            </div>
+            <p>&copy; 2024 The Artist Side. Hecho con ❤️ para los amantes de la música.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="contacto.js"></script>
+</body>
+</html>

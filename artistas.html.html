@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artistas - The Artist Side</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <div class="logo">
+                <div class="logo-icon">
+                    <div class="equalizer">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+                </div>
+                <span class="logo-text">the artist side</span>
+            </div>
+            
+            <!-- Navigation Links -->
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="artistas.html" class="nav-link active">Artistas</a>
+                <a href="contacto.html" class="nav-link">Contacto</a>
+            </div>
+            
+            <!-- Search Bar -->
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Busca por artista, álbum...">
+                <button class="search-btn">Buscar</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header Section -->
+        <section class="page-header">
+            <div class="header-content">
+                <h1 class="page-title">Nuestros <span class="highlight">Artistas</span></h1>
+                <p class="page-description">
+                    Descubre las recomendaciones musicales de tus artistas favoritos. Cada perfil contiene canciones, álbumes y artistas que han mencionado en entrevistas, redes sociales y más.
+                </p>
+            </div>
+        </section>
+
+        <!-- Filters Section -->
+        <section class="filters-section">
+            <div class="filters-container">
+                <div class="filter-group">
+                    <label class="filter-label">Filtrar por género:</label>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">Todos</button>
+                        <button class="filter-btn" data-filter="hip-hop">Hip Hop</button>
+                        <button class="filter-btn" data-filter="reggaeton">Reggaeton</button>
+                        <button class="filter-btn" data-filter="r&b">R&B/Soul</button>
+                        <button class="filter-btn" data-filter="indie">Indie/Alt</button>
+                        <button class="filter-btn" data-filter="mainstream">Mainstream</button>
+                    </div>
+                </div>
+                
+                <div class="search-artists">
+                    <input type="text" class="artist-search" placeholder="Buscar artista...">
+                </div>
+            </div>
+        </section>
+
+        <!-- Artists Grid -->
+        <section class="artists-section">
+            <div class="artists-grid">
+                
+                <!-- Hip Hop Artists -->
+                <div class="artist-card" data-category="hip-hop" data-artist="tyler-the-creator">
+                    <div class="artist-image">
+                        <img src="https://via.placeholder.com/200x200/8b5cf6/ffffff?text=T" alt="Tyler, The Creator">
+                    </div>
+                    <div class="artist-info">
+                        <h3 class="artist-name">Tyler, The Creator</h3>
+                        <p class="artist-genre">Hip Hop</p>
+                        <p class="recommendations-count">23 recomendaciones</p>
+                    </div>
+                </div>
+
+                <div class="artist-card" data-category="hip-hop" data-artist="kendrick-lamar">
+                    <div class="artist-image">
+                        <img src="https://via.placeholder.com/200x200/6366f1/ffffff?text=K" alt="Kendrick Lamar">
+                    </div>
+                    <div class="artist-info">
+                        <h3 class="artist-name">Kendrick Lamar</h3>
+                        <p class="artist-genre">Hip Hop</p>
+                        <p class="recommendations-count">31 recomendaciones</p>
+                    </div>
+                </div>
+
+                <div class="artist-card" data-category="hip-hop" data-artist="mac-miller">
+                    <div class="artist-image">
+                        <img src="https://via.placeholder.com/200x200/7c3aed/ffffff?text=M" alt="Mac Miller">
+                    </div>
+                    <div class="artist-info">
+                        <h3 class="artist-name">Mac Miller</h3>
+                        <p class="artist-genre">Hip Hop</p>
+                        <p class="recommendations-count">18 recomendaciones</p>
+                    </div>
+                </div>
+
+                <div class="artist-card" data-category="hip-hop" data-artist="j-cole">
+                    <div class="artist-image">
+                        <img src="https://via.placeholder.com/200x200/5b21b6/ffffff?text=JC" alt="J. Cole">
+                    </div>
+                    <div class="artist-info">
+                        <h3 class="artist-name">J. Cole</h3>
+                        <p class="artist-genre">Hip Hop</p>
+                        <p class="recommendations-count">15 recomendaciones</p>
+                    </div>
+                </div>
+
+                <!-- Reggaeton Artists -->
+                <div class="artist-card" data-category="reggaeton" data-artist="bad-bunny">
+                    <div class="artist-image">
+                        <img src="https://via.placeholder.com/200x200/a855f7/ffffff?text=BB" alt="Bad Bunny">
+                    </div>
+                    <div class="artist-info">
+                        <h3 class="artist-name">Bad Bunny</h3>
+                        <p class="artist-genre">Reggaeton</p>
+                        <p class="recommendations-count">27 recomendaciones</p>
+                    </div>
+                </div>
+
+                <div class="artist-card" data-category="reggaeton" data-artist="rosalia">
+                    <div class="artist-image">
+                        <img src="https://via.placeholder.com/200x200/c084fc/ffffff?text=R" alt="Rosalía">
+                    </div>
+                    <div class="artist-info">
+                        <h3 class="artist-name">Rosalía</h3>
+                        <p class="artist-genre">Reggaeton/Flamenco</p>
+                        <p class="recommendations-count">19 recomendaciones</p>
+                    </div>
+                </div>
+
+                <div class="artist-card" data-category="reggaeton" data-artist="c-tangana">
+                    <div class="artist-image">
+                        <img src="https://via.placeholder.com/200x200/d8b4fe/ffffff?text=CT" alt="C. Tangana">
+                    </div>
+                    <div class="artist-info">
+                        <h3 class="artist-name">C. Tangana</h3>
+                        <p class="artist-genre">Reggaeton/Urban</p>
+                        <p class="recommendations-count">14 recomendaciones</p>
+                    </div>
+                </div>
+
+                <!-- R&B/Soul Artists -->
+                <div class="artist-card" data-category="r&b" data-artist="frank-ocean">
+                    <div class="artist-image">
+                        <img src="https://via.placeholder.com/200x200/6366f1/ffffff?text=FO" alt="Frank Ocean">
+                    </div>
+                    <div class="artist-info">
+                        <h3 class="artist-name">Frank Ocean</h3>
+                        <p class="artist-genre">R&B/Soul</p>
+                        <p class="recommendations-count">22 recomendaciones</p>
+                    </div>
+                </div>
+
+                <div class="artist-card" data-category="r&b" data-artist="jorja-smith">
+                    <div class="artist-image">
+                        <img src="https://via.placeholder.com/200x200/8b5cf6/ffffff?text=JS" alt="Jorja Smith">
+                    </div>
+                    <div class="artist-info">
+                        <h3 class="artist-name">Jorja Smith</h3>
+                        <p class="artist-genre">R&B/Soul</p>
+                        <p class="recommendations-count">16 recomendaciones</p>
+                    </div>
+                </div>
+
+                <div class="artist-card" data-category="r&b" data-artist="steve-lacy">
+                    <div class="artist-image">
+                        <img src="https://via.placeholder.com/200x200/a855f7/ffffff?text=SL" alt="Steve Lacy">
+                    </div>
+                    <div class="artist-info">
+                        <h3 class="artist-name">Steve Lacy</h3>
+                        <p class="artist-genre">R&B/Indie</p>
+                        <p class="recommendations-count">12 recomendaciones</p>
+                    </div>
+                </div>
+
+                <!-- Mainstream Artists -->
+                <div class="artist-card" data-category="mainstream" data-artist="drake">
+                    <div class="artist-image">
+                        <img src="https://via.placeholder.com/200x200/7c3aed/ffffff?text=D" alt="Drake">
+                    </div>
+                    <div class="artist-info">
+                        <h3 class="artist-name">Drake</h3>
+                        <p class="artist-genre">Hip Hop/Pop</p>
+                        <p class="recommendations-count">35 recomendaciones</p>
+                    </div>
+                </div>
+
+                <div class="artist-card" data-category="mainstream" data-artist="the-weeknd">
+                    <div class="artist-image">
+                        <img src="https://via.placeholder.com/200x200/5b21b6/ffffff?text=TW" alt="The Weeknd">
+                    </div>
+                    <div class="artist-info">
+                        <h3 class="artist-name">The Weeknd</h3>
+                        <p class="artist-genre">R&B/Pop</p>
+                        <p class="recommendations-count">28 recomendaciones</p>
+                    </div>
+                </div>
+
+                <!-- Rap Español -->
+                <div class="artist-card" data-category="hip-hop" data-artist="kase-o">
+                    <div class="artist-image">
+                        <img src="https://via.placeholder.com/200x200/6366f1/ffffff?text=KO" alt="Kase.O">
+                    </div>
+                    <div class="artist-info">
+                        <h3 class="artist-name">Kase.O</h3>
+                        <p class="artist-genre">Rap Español</p>
+                        <p class="recommendations-count">21 recomendaciones</p>
+                    </div>
+                </div>
+
+                <div class="artist-card" data-category="hip-hop" data-artist="dano">
+                    <div class="artist-image">
+                        <img src="https://via.placeholder.com/200x200/8b5cf6/ffffff?text=D" alt="Dano">
+                    </div>
+                    <div class="artist-info">
+                        <h3 class="artist-name">Dano</h3>
+                        <p class="artist-genre">Rap Español</p>
+                        <p class="recommendations-count">17 recomendaciones</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number">14</div>
+                    <div class="stat-label">Artistas</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">287</div>
+                    <div class="stat-label">Recomendaciones</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">156</div>
+                    <div class="stat-label">Canciones</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">89</div>
+                    <div class="stat-label">Álbumes</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 The Artist Side. Hecho con ❤️ para los amantes de la música.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="artistas.js"></script>
+    <script src="artistas.js"></script>
+</body>
+</html>
