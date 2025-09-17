@@ -28,10 +28,10 @@ function renderArtistInfo(artist) {
     }
 
     // Actualizar información del header
-    const artistImage = document.querySelector('.artist-header-image img');
-    const artistName = document.querySelector('.artist-name');
-    const artistDescription = document.querySelector('.artist-description');
-    const socialLinks = document.querySelector('.social-links');
+    const artistImage = document.querySelector('.artist-main-image img');
+    const artistName = document.querySelector('.artist-main-name');
+    const artistDescription = document.querySelector('.artist-main-description');
+    const socialLinks = document.querySelector('.artist-social-links');
 
     if (artistImage) {
         artistImage.src = artist.image;
