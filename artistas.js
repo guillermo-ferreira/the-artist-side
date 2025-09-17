@@ -1,4 +1,4 @@
-// artistas.js - JavaScript mejorado para página de artistas
+// artistas.js CORREGIDO - Sin popups molestos
 
 // Base de datos de artistas
 const artistsDatabase = [
@@ -55,24 +55,6 @@ const artistsDatabase = [
         image: 'https://via.placeholder.com/200x200/F98A75/ffffff?text=R',
         recommendations: 22,
         description: 'Cantante y compositora española'
-    },
-    {
-        id: 'frank-ocean',
-        name: 'Frank Ocean',
-        realName: 'Christopher Edwin Breaux',
-        genre: 'r&b',
-        image: 'https://via.placeholder.com/200x200/DB91D6/ffffff?text=FO',
-        recommendations: 19,
-        description: 'Cantante, compositor y rapero estadounidense'
-    },
-    {
-        id: 'billie-eilish',
-        name: 'Billie Eilish',
-        realName: 'Billie Eilish Pirate Baird O\'Connell',
-        genre: 'indie',
-        image: 'https://via.placeholder.com/200x200/F98A75/ffffff?text=BE',
-        recommendations: 14,
-        description: 'Cantante y compositora estadounidense'
     }
 ];
 
@@ -112,48 +94,39 @@ function renderArtists() {
     // Mostrar/ocultar mensaje de no resultados
     if (filteredArtists.length === 0) {
         container.style.display = 'none';
-        if (noResults) noResults.style.display = 'block';
+        noResults.style.display = 'block';
         return;
     } else {
         container.style.display = 'grid';
-        if (noResults) noResults.style.display = 'none';
+        noResults.style.display = 'none';
     }
     
     // Generar HTML de artistas
     container.innerHTML = filteredArtists.map(artist => `
-        <div class="artist-card" data-genre="${artist.genre}" onclick="goToArtist('${artist.id}')">
-            <div class="artist-card-image">
+        <div class="artist-card" data-genre="${artist.genre}" data-aos="fade-up">
+            <div class="artist-image">
                 <img src="${artist.image}" alt="${artist.name}" loading="lazy">
                 <div class="artist-overlay">
-                    <span class="view-artist">Ver perfil</span>
+                    <button class="view-artist-btn" onclick="showComingSoon('${artist.name}')">
+                        Ver perfil
+                    </button>
                 </div>
             </div>
-            <div class="artist-card-content">
-                <h3 class="artist-card-name">${artist.name}</h3>
-                <p class="artist-card-real-name">${artist.realName}</p>
-                <p class="artist-card-description">${artist.description}</p>
-                <div class="artist-card-stats">
-                    <span class="stat">
-                        <strong>${artist.recommendations}</strong> recomendaciones
-                    </span>
-                    <span class="genre-tag">${getGenreDisplayName(artist.genre)}</span>
+            <div class="artist-info">
+                <h3 class="artist-name">${artist.name}</h3>
+                <p class="artist-real-name">${artist.realName}</p>
+                <p class="artist-genre">${getGenreDisplayName(artist.genre)}</p>
+                <div class="artist-stats">
+                    <span class="recommendations-count">${artist.recommendations} recomendaciones</span>
                 </div>
             </div>
         </div>
     `).join('');
-    
-    // Aplicar animaciones de entrada
-    const cards = container.querySelectorAll('.artist-card');
-    cards.forEach((card, index) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        
-        setTimeout(() => {
-            card.style.transition = 'all 0.6s ease';
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-        }, index * 100);
-    });
+}
+
+// Mostrar mensaje de próximamente (SIN POPUP MOLESTO)
+function showComingSoon(artistName) {
+    alert(`🎵 ¡Próximamente!\n\nEstamos preparando el perfil completo de ${artistName} con todas sus recomendaciones musicales.\n\n¡Vuelve pronto para descubrir qué música le gusta!`);
 }
 
 // Configurar filtros
@@ -165,7 +138,7 @@ function setupFilters() {
             // Remover clase active de todos los botones
             filterButtons.forEach(btn => btn.classList.remove('active'));
             
-            // Añadir clase active al botón clickeado
+            // Agregar clase active al botón clickeado
             this.classList.add('active');
             
             // Actualizar filtro actual
@@ -183,7 +156,7 @@ function setupSearch() {
     
     if (searchInput) {
         searchInput.addEventListener('input', function() {
-            searchQuery = this.value;
+            searchQuery = this.value.trim();
             renderArtists();
         });
     }
@@ -191,26 +164,34 @@ function setupSearch() {
 
 // Configurar animaciones
 function setupAnimations() {
-    // Animación del equalizer en el logo
-    const bars = document.querySelectorAll('.bar');
+    // Animación de entrada para las tarjetas
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
     
-    function animateEqualizer() {
-        bars.forEach((bar, index) => {
-            const height = Math.random() * 100 + 20;
-            bar.style.height = height + '%';
-            bar.style.animationDelay = (index * 0.1) + 's';
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
         });
-    }
+    }, observerOptions);
     
-    setInterval(animateEqualizer, 500);
+    // Observar todas las tarjetas de artistas
+    setTimeout(() => {
+        const artistCards = document.querySelectorAll('.artist-card');
+        artistCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    }, 100);
 }
 
-// Ir a página del artista
-function goToArtist(artistId) {
-    window.location.href = `artista.html?artist=${artistId}`;
-}
-
-// Obtener nombre de género para mostrar
+// Función auxiliar para nombres de géneros
 function getGenreDisplayName(genre) {
     const genreNames = {
         'hip-hop': 'Hip Hop',
@@ -223,28 +204,10 @@ function getGenreDisplayName(genre) {
     return genreNames[genre] || genre;
 }
 
-// Funcionalidad de búsqueda global
-const globalSearchInput = document.querySelector('.search-input');
-const globalSearchBtn = document.querySelector('.search-btn');
-
-if (globalSearchInput && globalSearchBtn) {
-    function performGlobalSearch() {
-        const query = globalSearchInput.value.trim();
-        if (query) {
-            searchQuery = query;
-            const artistSearchInput = document.getElementById('artist-search');
-            if (artistSearchInput) {
-                artistSearchInput.value = query;
-            }
-            renderArtists();
-        }
+// Función para manejar clicks en artistas del homepage
+function handleArtistClick(artistId) {
+    const artist = artistsDatabase.find(a => a.id === artistId);
+    if (artist) {
+        showComingSoon(artist.name);
     }
-    
-    globalSearchBtn.addEventListener('click', performGlobalSearch);
-    
-    globalSearchInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            performGlobalSearch();
-        }
-    });
 }
