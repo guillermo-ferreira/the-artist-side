@@ -210,7 +210,6 @@ function initializeArtistPage() {
     handleRecommendationFilters(artist.recommendations);
     
     // Configurar navegación
-    setupArtistNavigation();
     
     // Activar filtro "Todos" por defecto
     const allBtn = document.querySelector('[data-filter="all"]');
