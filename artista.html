@@ -56,47 +56,48 @@
         <h1 class="artist-main-name">Cargando...</h1>
         <p class="artist-main-description">...</p>
         <div class="artist-social-links">
-                        <!-- Social links will be populated by JavaScript -->
-                    </div>
-                </div>
+            <!-- Social links will be populated by JavaScript -->
+        </div>
+    </div>
+</section> <!-- CERRAR la sección del artista -->
+
+<!-- Recommendations Section -->
+<div class="container">
+    <div class="recommendations-section">
+        <div class="section-header">
+            <h2 class="recommendations-title">Descubre las recomendaciones musicales</h2>
+            <div class="filter-container">
+                <span class="filter-label">Filtrar:</span>
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="album">Álbumes</button>
+                <button class="filter-btn" data-filter="song">Canciones</button>
+                <button class="filter-btn" data-filter="artist">Artistas</button>
             </div>
         </div>
-
-        <!-- Recommendations Section -->
-        <div class="recommendations-section">
-            <div class="section-header">
-                <h2 class="recommendations-title">Descubre las recomendaciones musicales</h2>
-                <div class="filter-container">
-                    <span class="filter-label">Filtrar:</span>
-                    <button class="filter-btn active" data-filter="all">Todos</button>
-                    <button class="filter-btn" data-filter="album">Álbumes</button>
-                    <button class="filter-btn" data-filter="song">Canciones</button>
-                    <button class="filter-btn" data-filter="artist">Artistas</button>
-                </div>
-            </div>
-            
-            <div class="recommendations-container">
-                <div class="loading-message">
-                    <i class="fas fa-spinner fa-spin"></i>
-                    Cargando recomendaciones...
-                </div>
+        
+        <div class="recommendations-container">
+            <div class="loading-message">
+                <i class="fas fa-spinner fa-spin"></i>
+                Cargando recomendaciones...
             </div>
         </div>
+    </div>
 
-        <!-- Artist Navigation -->
-        <div class="artist-navigation">
-            <a href="#" class="nav-btn" id="prev-artist">
-                <i class="fas fa-chevron-left"></i>
-                Artista anterior
-            </a>
-            <a href="#" class="nav-btn" id="next-artist">
-                Siguiente artista
-                <i class="fas fa-chevron-right"></i>
-            </a>
-        </div>
+    <!-- Artist Navigation -->
+    <div class="artist-navigation">
+        <a href="#" class="nav-btn" id="prev-artist">
+            <i class="fas fa-chevron-left"></i>
+            Artista anterior
+        </a>
+        <a href="#" class="nav-btn" id="next-artist">
+            Siguiente artista
+            <i class="fas fa-chevron-right"></i>
+        </a>
+    </div>
+</div> <!-- CERRAR container -->
 
-        </div>
-    </main>
+</div> <!-- CERRAR div principal -->
+</main>
 
     <!-- Footer -->
     <footer class="footer">
