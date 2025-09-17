@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Artist Side - La música que recomiendan tus artistas favoritos</title>
+    <title>Artistas - The Artist Side</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -11,7 +11,6 @@
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-container">
-            <!-- Logo -->
             <a href="index.html" class="logo">
                 <div class="logo-icon">
                     <div class="equalizer">
@@ -24,13 +23,12 @@
                 <span class="logo-text">the artist side</span>
             </a>
             
-            <!-- Navigation Links -->
             <div class="nav-links">
-                <a href="artistas.html" class="nav-link">Artistas</a>
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="artistas.html" class="nav-link active">Artistas</a>
                 <a href="contacto.html" class="nav-link">Contacto</a>
             </div>
             
-            <!-- Search Bar -->
             <div class="search-container">
                 <input type="text" class="search-input" placeholder="Busca por artista, álbum...">
                 <button class="search-btn">Buscar</button>
@@ -38,66 +36,57 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
     <main class="main-content">
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    La <span class="highlight">música</span> que recomiendan<br>
-                    tus artistas favoritos
-                </h1>
-                
-                <p class="hero-description">
-                    ¿Te has preguntado alguna vez qué música escuchan tus artistas favoritos? Descubre las canciones, álbumes y artistas que han recomendado en entrevistas, redes sociales y medios. Una nueva forma de explorar música a través de los ojos de quienes más admiras.
+        <!-- Header Section -->
+        <section class="page-header">
+            <div class="header-content">
+                <h1 class="page-title">Nuestros <span class="highlight">Artistas</span></h1>
+                <p class="page-description">
+                    Explora las recomendaciones musicales de tus artistas favoritos. Cada perfil contiene canciones, álbumes y artistas que han mencionado en entrevistas, redes sociales y más.
                 </p>
+            </div>
+        </section>
+
+        <!-- Filters Section -->
+        <section class="filters-section">
+            <div class="filters-container">
+                <div class="filter-group">
+                    <label class="filter-label">Filtrar por género:</label>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">Todos</button>
+                        <button class="filter-btn" data-filter="hip-hop">Hip Hop</button>
+                        <button class="filter-btn" data-filter="reggaeton">Reggaeton</button>
+                        <button class="filter-btn" data-filter="r&b">R&B/Soul</button>
+                        <button class="filter-btn" data-filter="indie">Indie/Alt</button>
+                        <button class="filter-btn" data-filter="mainstream">Mainstream</button>
+                    </div>
+                </div>
                 
-                <!-- Artist Circles -->
-                <div class="artist-circles">
-                    <div class="artist-circle" data-artist="bad-bunny">
-                        <img src="https://via.placeholder.com/120x120/DB91D6/ffffff?text=BB" alt="Bad Bunny">
-                        <div class="artist-name">Bad Bunny</div>
-                    </div>
-                    <div class="artist-circle" data-artist="drake">
-                        <img src="https://via.placeholder.com/120x120/F98A75/ffffff?text=D" alt="Drake">
-                        <div class="artist-name">Drake</div>
-                    </div>
-                    <div class="artist-circle" data-artist="tyler">
-                        <img src="https://via.placeholder.com/120x120/DB91D6/ffffff?text=T" alt="Tyler">
-                        <div class="artist-name">Tyler</div>
-                    </div>
-                    <div class="artist-circle" data-artist="kendrick">
-                        <img src="https://via.placeholder.com/120x120/F98A75/ffffff?text=K" alt="Kendrick">
-                        <div class="artist-name">Kendrick</div>
-                    </div>
-                    <div class="artist-circle" data-artist="jorja-smith">
-                        <img src="https://via.placeholder.com/120x120/DB91D6/ffffff?text=JS" alt="Jorja Smith">
-                        <div class="artist-name">Jorja Smith</div>
-                    </div>
+                <div class="search-filters">
+                    <input type="text" id="artist-search" class="page-search" placeholder="Buscar artista...">
                 </div>
             </div>
         </section>
-        
-        <!-- About Section -->
-        <section class="about-section">
-            <h2 class="section-title">Sobre nuestro proyecto</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>La mejor forma de descubrir música nueva es a través de las recomendaciones de tus artistas favoritos. Cada canción que mencionan cuenta una historia, cada álbum que destacan revela sus influencias.</p>
-                    <p>Estás aquí por amor al arte, para conocer mejor a los artistas, para inspirarte a través de su música. Creamos un círculo musical donde los artistas comparten aquello que realmente los mueve.</p>
-                    <p><strong>Una nueva forma de descubrir música auténtica.</strong></p>
-                </div>
+
+        <!-- Artists Grid -->
+        <section class="artists-grid">
+            <div id="artists-container" class="artists-container">
+                <!-- Los artistas se cargan dinámicamente con JavaScript -->
+            </div>
+            
+            <div id="no-results" class="no-results" style="display: none;">
+                <h3>No se encontraron artistas</h3>
+                <p>Prueba con otros filtros o términos de búsqueda.</p>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <p>&copy; 2024 The Artist Side. Hecho con ❤️ para los amantes de la música.</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="artistas.js"></script>
 </body>
 </html>
