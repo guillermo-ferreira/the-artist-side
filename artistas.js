@@ -1,4 +1,4 @@
-// artistas.js CORREGIDO - Sin popups molestos
+// artistas.js CORREGIDO - Navegación a páginas individuales
 
 // Base de datos de artistas
 const artistsDatabase = [
@@ -101,21 +101,14 @@ function renderArtists() {
         noResults.style.display = 'none';
     }
     
-    // Generar HTML de artistas
+    // Generar HTML de artistas (LIMPIO CON NAVEGACIÓN)
     container.innerHTML = filteredArtists.map(artist => `
-        <div class="artist-card" data-genre="${artist.genre}" data-aos="fade-up">
+        <div class="artist-card" onclick="navigateToArtist('${artist.id}')" data-genre="${artist.genre}">
             <div class="artist-image">
                 <img src="${artist.image}" alt="${artist.name}" loading="lazy">
-                <div class="artist-overlay">
-                    <button class="view-artist-btn" onclick="showComingSoon('${artist.name}')">
-                        Ver perfil
-                    </button>
-                </div>
             </div>
             <div class="artist-info">
                 <h3 class="artist-name">${artist.name}</h3>
-                <p class="artist-real-name">${artist.realName}</p>
-                <p class="artist-genre">${getGenreDisplayName(artist.genre)}</p>
                 <div class="artist-stats">
                     <span class="recommendations-count">${artist.recommendations} recomendaciones</span>
                 </div>
@@ -124,9 +117,13 @@ function renderArtists() {
     `).join('');
 }
 
-// Mostrar mensaje de próximamente (SIN POPUP MOLESTO)
-function showComingSoon(artistName) {
-    alert(`🎵 ¡Próximamente!\n\nEstamos preparando el perfil completo de ${artistName} con todas sus recomendaciones musicales.\n\n¡Vuelve pronto para descubrir qué música le gusta!`);
+// Navegar a página individual del artista
+function navigateToArtist(artistId) {
+    // Guardar el ID del artista para la página individual
+    localStorage.setItem('currentArtistId', artistId);
+    
+    // Navegar directamente a la página individual
+    window.location.href = `artista.html?id=${artistId}`;
 }
 
 // Configurar filtros
@@ -206,8 +203,5 @@ function getGenreDisplayName(genre) {
 
 // Función para manejar clicks en artistas del homepage
 function handleArtistClick(artistId) {
-    const artist = artistsDatabase.find(a => a.id === artistId);
-    if (artist) {
-        showComingSoon(artist.name);
-    }
+    navigateToArtist(artistId);
 }
