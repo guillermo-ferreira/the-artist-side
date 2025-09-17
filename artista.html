@@ -5,122 +5,145 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artista - The Artist Side</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="enhanced-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
-                <a href="index.html">The Artist Side</a>
-            </div>
-            <div class="nav-menu">
-                <a href="index.html" class="nav-link">Home</a>
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <div class="equalizer">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+                </div>
+                <span class="logo-text">the artist side</span>
+            </a>
+            
+            <div class="nav-links">
                 <a href="artistas.html" class="nav-link active">Artistas</a>
                 <a href="contacto.html" class="nav-link">Contacto</a>
             </div>
-            <div class="nav-search">
-                <input type="text" class="search-input" placeholder="Buscar artistas...">
-                <i class="fas fa-search search-icon"></i>
+            
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Busca por artista, álbum...">
+                <button class="search-btn">Buscar</button>
             </div>
         </div>
     </nav>
 
     <!-- Main Content -->
-    <main class="main-content">
-        <div class="container">
-            <!-- Breadcrumbs -->
-            <nav class="breadcrumbs">
-                <a href="index.html">Home</a> > 
-                <a href="artistas.html">Artistas</a> > 
-                <span>Cargando...</span>
-            </nav>
-
-            <!-- Artist Header -->
-            <section class="artist-header">
-                <div class="artist-header-content">
-                    <div class="artist-header-image">
-                        <img src="https://via.placeholder.com/300x300/6b46c1/ffffff?text=Loading" alt="Artist" id="artist-image">
-                    </div>
-                    <div class="artist-header-info">
-                        <h1 class="artist-name">Cargando...</h1>
-                        <p class="artist-description">Cargando información del artista...</p>
-                        <div class="social-links">
-                            <!-- Social links will be populated by JavaScript -->
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Recommendations Section -->
-            <section class="recommendations-section">
-                <div class="section-header">
-                    <h2 class="recommendations-title">Descubre las recomendaciones musicales</h2>
-                    <div class="filter-container">
-                        <span class="filter-label">Filtrar:</span>
-                        <button class="filter-btn" data-filter="all">Todos</button>
-                        <button class="filter-btn" data-filter="album">Álbumes</button>
-                        <button class="filter-btn" data-filter="song">Canciones</button>
-                        <button class="filter-btn" data-filter="artist">Artistas</button>
-                    </div>
-                </div>
-                
-                <div class="recommendations-container">
-                    <!-- Recommendations will be populated by JavaScript -->
-                    <div class="loading-message">
-                        <i class="fas fa-spinner fa-spin"></i>
-                        Cargando recomendaciones...
-                    </div>
-                </div>
-            </section>
+    <div class="container">
+        <!-- Breadcrumbs -->
+        <div class="breadcrumbs">
+            <a href="index.html">Home</a> > 
+            <a href="artistas.html">Artistas</a> > 
+            <span>Cargando...</span>
         </div>
-    </main>
+
+        <!-- Artist Header -->
+        <div class="artist-header">
+            <div class="artist-header-content">
+                <div class="artist-header-image">
+                    <img src="https://via.placeholder.com/300x300/6b46c1/ffffff?text=Loading" alt="Artist" onerror="this.src='https://via.placeholder.com/300x300/6b46c1/ffffff?text=Artist'">
+                </div>
+                <div class="artist-header-info">
+                    <h1 class="artist-name">Cargando...</h1>
+                    <p class="artist-description">Cargando información del artista...</p>
+                    <div class="social-links">
+                        <!-- Social links will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recommendations Section -->
+        <div class="recommendations-section">
+            <div class="section-header">
+                <h2 class="recommendations-title">Descubre las recomendaciones musicales</h2>
+                <div class="filter-container">
+                    <span class="filter-label">Filtrar:</span>
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="album">Álbumes</button>
+                    <button class="filter-btn" data-filter="song">Canciones</button>
+                    <button class="filter-btn" data-filter="artist">Artistas</button>
+                </div>
+            </div>
+            
+            <div id="recommendations-container">
+                <div class="loading-message">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    Cargando recomendaciones...
+                </div>
+            </div>
+        </div>
+
+        <!-- Artist Navigation -->
+        <div class="artist-navigation">
+            <a href="#" class="nav-btn" id="prev-artist">
+                <i class="fas fa-chevron-left"></i>
+                Artista anterior
+            </a>
+            <a href="#" class="nav-btn" id="next-artist">
+                Siguiente artista
+                <i class="fas fa-chevron-right"></i>
+            </a>
+        </div>
+    </div>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>The Artist Side</h3>
-                    <p>Descubre la música que recomiendan tus artistas favoritos</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Enlaces</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="artistas.html">Artistas</a></li>
-                        <li><a href="contacto.html">Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Síguenos</h4>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-spotify"></i></a>
-                    </div>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>The Artist Side</h3>
+                <p>Descubre la música que recomiendan tus artistas favoritos</p>
+            </div>
+            <div class="footer-section">
+                <h4>Enlaces</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="artistas.html">Artistas</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Síguenos</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-spotify"></i></a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 The Artist Side. Todos los derechos reservados.</p>
-            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 The Artist Side. Todos los derechos reservados.</p>
         </div>
     </footer>
 
     <!-- Scripts -->
-    <script src="artistas.js"></script>
+    <script>
+        // Cargar datos de artistas
+        fetch('artists-data.json')
+            .then(response => response.json())
+            .then(data => {
+                window.artistsData = data;
+            })
+            .catch(error => console.error('Error loading artists data:', error));
+    </script>
     <script src="artista-individual.js"></script>
-    
+
     <style>
         /* Estilos específicos para la página del artista */
         .artist-header {
             margin: 40px 0;
             padding: 40px 0;
         }
-        
+
         .artist-header-content {
             display: flex;
             align-items: center;
@@ -128,11 +151,11 @@
             max-width: 1200px;
             margin: 0 auto;
         }
-        
+
         .artist-header-image {
             flex-shrink: 0;
         }
-        
+
         .artist-header-image img {
             width: 200px;
             height: 200px;
@@ -141,12 +164,12 @@
             border: 4px solid var(--accent-color);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
-        
+
         .artist-header-info {
             flex: 1;
             color: white;
         }
-        
+
         .artist-name {
             font-size: 3rem;
             font-weight: 800;
@@ -156,19 +179,19 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
+
         .artist-description {
             font-size: 1.1rem;
             line-height: 1.6;
             margin-bottom: 20px;
             color: rgba(255, 255, 255, 0.9);
         }
-        
+
         .social-links {
             display: flex;
             gap: 15px;
         }
-        
+
         .social-link {
             display: flex;
             align-items: center;
@@ -183,17 +206,17 @@
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
         }
-        
+
         .social-link:hover {
             background: var(--accent-color);
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
-        
+
         .recommendations-section {
             margin: 60px 0;
         }
-        
+
         .section-header {
             display: flex;
             justify-content: space-between;
@@ -202,27 +225,27 @@
             flex-wrap: wrap;
             gap: 20px;
         }
-        
+
         .recommendations-title {
             font-size: 2rem;
             font-weight: 700;
             color: white;
             margin: 0;
         }
-        
+
         .filter-container {
             display: flex;
             align-items: center;
             gap: 10px;
             flex-wrap: wrap;
         }
-        
+
         .filter-label {
             color: rgba(255, 255, 255, 0.8);
             font-weight: 600;
             margin-right: 10px;
         }
-        
+
         .filter-btn {
             padding: 8px 16px;
             background: rgba(255, 255, 255, 0.1);
@@ -233,45 +256,45 @@
             transition: all 0.3s ease;
             font-weight: 500;
         }
-        
+
         .filter-btn:hover,
         .filter-btn.active {
             background: var(--accent-color);
             border-color: var(--accent-color);
             transform: translateY(-2px);
         }
-        
+
         .loading-message {
             text-align: center;
             color: rgba(255, 255, 255, 0.7);
             font-size: 1.1rem;
             padding: 40px;
         }
-        
+
         .loading-message i {
             margin-right: 10px;
             font-size: 1.2rem;
         }
-        
+
         .breadcrumbs {
             margin: 20px 0;
             font-size: 0.9rem;
         }
-        
+
         .breadcrumbs a {
             color: var(--accent-color);
             text-decoration: none;
             transition: color 0.3s ease;
         }
-        
+
         .breadcrumbs a:hover {
             color: #ff6b9d;
         }
-        
+
         .breadcrumbs span {
             color: rgba(255, 255, 255, 0.7);
         }
-        
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .artist-header-content {
@@ -279,34 +302,34 @@
                 text-align: center;
                 gap: 20px;
             }
-            
+
             .artist-name {
                 font-size: 2rem;
             }
-            
+
             .section-header {
                 flex-direction: column;
                 align-items: flex-start;
             }
-            
+
             .filter-container {
                 width: 100%;
                 justify-content: center;
             }
-            
+
             .recommendations-title {
                 font-size: 1.5rem;
                 text-align: center;
                 width: 100%;
             }
         }
-        
+
         @media (max-width: 480px) {
             .artist-header-image img {
                 width: 150px;
                 height: 150px;
             }
-            
+
             .filter-btn {
                 padding: 6px 12px;
                 font-size: 0.9rem;
