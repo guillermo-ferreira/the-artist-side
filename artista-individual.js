@@ -387,6 +387,7 @@ function addAdditionalStyles() {
 document.addEventListener('DOMContentLoaded', () => {
     addAdditionalStyles();
     initializeArtistPage();
+    setupArtistNavigation();
 });
 
 // Exportar funciones para uso global
