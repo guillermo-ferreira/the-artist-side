@@ -210,7 +210,7 @@ function initializeArtistPage() {
     handleRecommendationFilters(artist.recommendations);
     
     // Configurar navegación
-    
+    setupArtistNavigation();
     // Activar filtro "Todos" por defecto
     const allBtn = document.querySelector('[data-filter="all"]');
     if (allBtn) allBtn.classList.add('active');
@@ -387,7 +387,6 @@ function addAdditionalStyles() {
 document.addEventListener('DOMContentLoaded', () => {
     addAdditionalStyles();
     initializeArtistPage();
-    setupArtistNavigation();
 });
 
 // Exportar funciones para uso global
