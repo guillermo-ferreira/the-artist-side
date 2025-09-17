@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Artist Side - La música que recomiendan tus artistas favoritos</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="enhanced-styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -99,5 +100,15 @@
     </footer>
 
     <script src="script.js"></script>
+<script>
+fetch('artists-data.json')
+    .then(response => response.json())
+    .then(data => {
+        window.artistsData = data;
+    })
+    .catch(error => console.error('Error loading artists data:', error));
+</script>
+<script src="artistas.js"></script>
+
 </body>
 </html>
