@@ -199,56 +199,6 @@
       }
     ]
   },
-  "jorja-smith": {
-    "id": "jorja-smith",
-    "name": "Jorja Smith",
-    "fullName": "Jorja Alice Smith",
-    "genre": "R&B",
-    "country": "UK",
-    "birthDate": "1997-06-11",
-    "description": "Jorja Alice Smith (Walsall, Inglaterra, 11 de junio de 1997) es una cantante y compositora británica de R&B, soul y pop. Ha sido nominada al Premio Mercury y ganadora del Critics' Choice Award en los BRIT Awards 2018.",
-    "image": "https://i.imgur.com/6kL9vQx.jpg",
-    "socialMedia": {
-      "instagram": "@jorjasmith_",
-      "spotify": "https://open.spotify.com/artist/1CoZyIx7UvdxT5c8UkMzHd?si=RUvgMMnNQsCKUR08zCm6Xw"
-    },
-    "featured": true,
-    "recommendations": [
-      {
-        "type": "album",
-        "title": "Lost & Found",
-        "artist": "Jorja Smith",
-        "year": "2018",
-        "image": "https://i.imgur.com/4kL8vQx.jpg",
-        "quote": "Mi primer álbum completo. Cada canción refleja una parte de mi crecimiento personal.",
-        "source": "BBC Radio 1",
-        "sourceUrl": "https://bbc.co.uk",
-        "spotifyUrl": ""
-      },
-      {
-        "type": "artist",
-        "title": "Amy Winehouse",
-        "artist": "Amy Winehouse",
-        "year": "",
-        "image": "https://i.imgur.com/5kL7vQx.jpg",
-        "quote": "Un talento sobrenatural, una artista que todos deberían escuchar. Su honestidad me inspira.",
-        "source": "Twitter - @sanbenito",
-        "sourceUrl": "https://twitter.com",
-        "spotifyUrl": ""
-      },
-      {
-        "type": "song",
-        "title": "Blue Lights",
-        "artist": "Jorja Smith",
-        "year": "2016",
-        "image": "https://i.imgur.com/7kL5vQx.jpg",
-        "quote": "La canción que cambió mi vida. Habla de temas reales que afectan a mi comunidad.",
-        "source": "The Guardian Interview",
-        "sourceUrl": "https://theguardian.com",
-        "spotifyUrl": ""
-      }
-    ]
-  },
   "rosalia": {
     "id": "rosalia",
     "name": "Rosalía",
@@ -298,6 +248,56 @@
         "spotifyUrl": ""
       }
     ]
+  },
+  "jorja-smith": {
+    "id": "jorja-smith",
+    "name": "Jorja Smith",
+    "fullName": "Jorja Alice Smith",
+    "genre": "R&B",
+    "country": "UK",
+    "birthDate": "1997-06-11",
+    "description": "Jorja Alice Smith (Walsall, Inglaterra, 11 de junio de 1997) es una cantante y compositora británica de R&B, soul y pop. Ha sido nominada al Premio Mercury y ganadora del Critics' Choice Award en los BRIT Awards 2018.",
+    "image": "https://i.imgur.com/6kL9vQx.jpg",
+    "socialMedia": {
+      "instagram": "@jorjasmith_",
+      "spotify": "https://open.spotify.com/artist/1CoZyIx7UvdxT5c8UkMzHd?si=RUvgMMnNQsCKUR08zCm6Xw"
+    },
+    "featured": true,
+    "recommendations": [
+      {
+        "type": "album",
+        "title": "Lost & Found",
+        "artist": "Jorja Smith",
+        "year": "2018",
+        "image": "https://i.imgur.com/4kL8vQx.jpg",
+        "quote": "Mi primer álbum completo. Cada canción refleja una parte de mi crecimiento personal.",
+        "source": "BBC Radio 1",
+        "sourceUrl": "https://bbc.co.uk",
+        "spotifyUrl": ""
+      },
+      {
+        "type": "artist",
+        "title": "Amy Winehouse",
+        "artist": "Amy Winehouse",
+        "year": "",
+        "image": "https://i.imgur.com/5kL7vQx.jpg",
+        "quote": "Un talento sobrenatural, una artista que todos deberían escuchar. Su honestidad me inspira.",
+        "source": "Twitter - @sanbenito",
+        "sourceUrl": "https://twitter.com",
+        "spotifyUrl": ""
+      },
+      {
+        "type": "song",
+        "title": "Blue Lights",
+        "artist": "Jorja Smith",
+        "year": "2016",
+        "image": "https://i.imgur.com/7kL5vQx.jpg",
+        "quote": "La canción que cambió mi vida. Habla de temas reales que afectan a mi comunidad.",
+        "source": "The Guardian Interview",
+        "sourceUrl": "https://theguardian.com",
+        "spotifyUrl": ""
+      }
+    ]
   }
-
 }
+
