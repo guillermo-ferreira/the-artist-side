@@ -4,7 +4,7 @@ const IMAGENES_SPOTIFY = {
     "Drake": "https://i.scdn.co/image/ab6761610000101f4293385d324db8558179afd9",
     "Tyler": "https://i.scdn.co/image/ab6761610000101fdf2728294ff77dd11eeb18fb",
     "Kendrick": "https://i.scdn.co/image/ab6761610000101f39ba6dcd4355c03de0b50918",
-    "Rosalía": "https://i.scdn.co/image/ab6761610000101fd7bb678bef6d2f26110cae49"
+    "Rosalía": "https://i.scdn.co/image/ab6761610000101fd7bb678bef6d2f26110cae49",
     "Jorja Smith": "https://i.scdn.co/image/ab6761610000101fa6524d02e26778b0b99a33d5"
 };
 
