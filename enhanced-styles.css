@@ -16,33 +16,10 @@
     --border-radius-xl: 25px;
 }
 
-/* Mejoras para las tarjetas de artistas */
-.artist-card {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    backdrop-filter: blur(10px);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    overflow: hidden;
-}
+/* ===== GRID DE ARTISTAS - ELIMINADO PARA EVITAR CONFLICTOS ===== */
+/* Los estilos del grid están definidos en styles.css líneas 420-552 */
 
-.artist-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: var(--shadow-heavy);
-    border-color: var(--accent-color);
-}
-
-.artist-card .artist-image {
-    position: relative;
-    overflow: hidden;
-}
-
-.artist-card .artist-image img {
-    transition: transform 0.3s ease;
-}
-
-.artist-card:hover .artist-image img {
-    transform: scale(1.1);
-}
+/* ===== RESTO DE ESTILOS EXISTENTES ===== */
 
 /* Mejoras para las recomendaciones */
 .recommendation-card {
@@ -262,8 +239,30 @@
     animation: pulse 1.5s ease-in-out infinite;
 }
 
-/* Mejoras responsive */
+/* ===== RESPONSIVE MEJORADO ===== */
+@media (max-width: 1024px) {
+    .artists-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+}
+
 @media (max-width: 768px) {
+    .artists-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+    
+    .artist-card {
+        padding: 1.2rem;
+    }
+    
+    .artist-card .artist-image {
+        height: 180px;
+    }
+    
     .recommendation-card {
         padding: 20px;
         margin-bottom: 20px;
@@ -291,6 +290,20 @@
 }
 
 @media (max-width: 480px) {
+    .artists-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0.5rem;
+    }
+    
+    .artist-card {
+        padding: 1rem;
+    }
+    
+    .artist-card .artist-image {
+        height: 150px;
+    }
+    
     .recommendation-card {
         padding: 16px;
     }
@@ -310,7 +323,8 @@
 .filter-btn:focus,
 .nav-btn:focus,
 .spotify-btn:focus,
-.social-link:focus {
+.social-link:focus,
+.artist-card:focus {
     outline: 2px solid var(--accent-color);
     outline-offset: 2px;
 }
