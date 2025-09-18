@@ -1178,3 +1178,39 @@ body {
         font-size: 1.75rem;
     }
 }
+
+/* ===== SECCIÓN DE RECOMENDACIONES DEL ARTISTA ===== */
+.recommendations-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 24px;
+}
+
+.section-header {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* ESPACIO ENTRE TÍTULO Y FILTROS */
+    margin-bottom: 2rem;
+}
+
+.recommendations-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--white);
+    margin: 0;
+    line-height: 1.3;
+}
+
+.filter-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.filter-container .filter-btn.active {
+    background: linear-gradient(135deg, var(--secondary-pink), var(--secondary-coral));
+    border-color: transparent;
+    color: var(--white);
+    font-weight: 600;
+}
