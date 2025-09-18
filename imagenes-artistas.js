@@ -94,13 +94,11 @@ function actualizarImagenesDesdeJSON(artistsData) {
 document.addEventListener('DOMContentLoaded', function() {
     console.log('🎵 Cargando imágenes de Spotify...');
     
-    // Esperar un poco para que se carguen otros scripts
     setTimeout(() => {
         actualizarImagenesSpotify();
         
-        // Si existe artistsData (tu JSON), actualizarlo también
         if (typeof artistsData !== 'undefined') {
             actualizarImagenesDesdeJSON(artistsData);
         }
-    }, 500);
+    }, 2000); // ← Esperar 2 segundos en lugar de 0.5
 });
