@@ -393,3 +393,19 @@ document.addEventListener('DOMContentLoaded', () => {
 // Exportar funciones para uso global
 window.goToArtist = goToArtist;
 window.initializeArtistPage = initializeArtistPage;
+// Exportar funciones para uso global
+window.goToArtist = goToArtist;
+window.initializeArtistPage = initializeArtistPage;
+
+// AÑADIR ESTAS LÍNEAS AQUÍ:
+// Aplicar imágenes de Spotify después de cargar el contenido
+setTimeout(() => {
+    if (typeof aplicarImagenSpotify !== 'undefined') {
+        const img = document.querySelector('.artist-main-image');
+        const artistName = document.querySelector('.artist-main-name')?.textContent;
+        if (img && artistName) {
+            console.log('🎵 Aplicando imagen de Spotify para:', artistName);
+            aplicarImagenSpotify(artistName, img);
+        }
+    }
+}, 1000);
