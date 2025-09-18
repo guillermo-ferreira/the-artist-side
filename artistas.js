@@ -382,7 +382,7 @@ function renderArtistsGrid(artists = getAllArtists()) {
         <div class="artist-card" data-genre="${artist.genre.toLowerCase()}" onclick="goToArtist('${artist.id}')">
             <div class="artist-card-image">
                 <img src="${artist.image}" alt="${artist.name}" 
-                     onerror="this.src='https://via.placeholder.com/200x200/6b46c1/ffffff?text=${encodeURIComponent(artist.name)}'">
+                     onerror="this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'">
             </div>
             
             <div class="artist-card-content">
