@@ -1,27 +1,36 @@
-
-// ===== SPOTIFY IMAGE FETCHER =====
+// ===== SPOTIFY IMAGE FETCHER - VERSIÓN CORREGIDA =====
 // Obtiene automáticamente las imágenes de los artistas desde Spotify
 
 class SpotifyImageFetcher {
-    constructor(clientId) {
+    constructor(clientId, clientSecret) {
         this.clientId = clientId;
+        this.clientSecret = clientSecret;
         this.accessToken = null;
     }
 
     // Obtener token de acceso
     async getAccessToken() {
+        const credentials = btoa(this.clientId + ':' + this.clientSecret);
+        
         const response = await fetch('https://accounts.spotify.com/api/token', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
-                'Authorization': 'Basic ' + btoa(this.clientId + ':')
+                'Authorization': 'Basic ' + credentials
             },
             body: 'grant_type=client_credentials'
         });
         
         const data = await response.json();
-        this.accessToken = data.access_token;
-        return this.accessToken;
+        
+        if (data.access_token) {
+            this.accessToken = data.access_token;
+            console.log('✅ Token obtenido correctamente');
+            return this.accessToken;
+        } else {
+            console.error('❌ Error obteniendo token:', data);
+            throw new Error('No se pudo obtener el token de acceso');
+        }
     }
 
     // Obtener información del artista incluyendo imagen
@@ -35,6 +44,10 @@ class SpotifyImageFetcher {
                 'Authorization': 'Bearer ' + this.accessToken
             }
         });
+
+        if (!response.ok) {
+            throw new Error(`Error ${response.status}: ${response.statusText}`);
+        }
 
         const data = await response.json();
         
@@ -59,6 +72,9 @@ class SpotifyImageFetcher {
                 const imageUrl = await this.getArtistImage(spotifyId);
                 images[artistKey] = imageUrl;
                 console.log(`✅ ${artistKey}: ${imageUrl}`);
+                
+                // Pequeña pausa entre requests
+                await new Promise(resolve => setTimeout(resolve, 100));
             } catch (error) {
                 console.error(`❌ Error getting image for ${artistKey}:`, error);
                 images[artistKey] = null;
@@ -71,38 +87,37 @@ class SpotifyImageFetcher {
 
 // ===== FUNCIÓN PARA ACTUALIZAR TUS DATOS =====
 async function updateArtistImages() {
-    // ⚠️ REEMPLAZA 'TU_CLIENT_ID_AQUI' con tu Client ID real
-    const fetcher = new SpotifyImageFetcher('08f380b0c88b49398011db2a8b97ce71');
+    // ⚠️ REEMPLAZA ESTOS VALORES CON TUS CREDENCIALES REALES
+    const CLIENT_ID = '08f380b0c88b49398011db2a8b97ce71';
+    const CLIENT_SECRET = '0fcbbbded6dc4ae1ad0c51c6980d4238';
     
-    console.log('🎵 Obteniendo imágenes de Spotify...');
-    const images = await fetcher.getAllArtistImages();
+    const fetcher = new SpotifyImageFetcher(CLIENT_ID, CLIENT_SECRET);
     
-    console.log('📸 Imágenes obtenidas:', images);
-    
-    // Actualizar artistsData con las nuevas imágenes
-    for (const [artistKey, imageUrl] of Object.entries(images)) {
-        if (imageUrl && artistsData[artistKey]) {
-            artistsData[artistKey].image = imageUrl;
-            console.log(`✅ Actualizada imagen de ${artistKey}`);
+    try {
+        console.log('🎵 Obteniendo imágenes de Spotify...');
+        const images = await fetcher.getAllArtistImages();
+        
+        console.log('📸 Imágenes obtenidas:', images);
+        
+        // Actualizar artistsData con las nuevas imágenes
+        for (const [artistKey, imageUrl] of Object.entries(images)) {
+            if (imageUrl && artistsData[artistKey]) {
+                artistsData[artistKey].image = imageUrl;
+                console.log(`✅ Actualizada imagen de ${artistKey}`);
+            }
         }
-    }
-    
-    console.log('🎯 ¡Todas las imágenes actualizadas!');
-    
-    // Re-renderizar la página si es necesario
-    if (typeof renderArtists === 'function') {
-        renderArtists();
+        
+        console.log('🎯 ¡Todas las imágenes actualizadas!');
+        console.log('📋 URLs finales:', Object.fromEntries(
+            Object.entries(images).map(([key, url]) => [key, url])
+        ));
+        
+        // Re-renderizar la página si es necesario
+        if (typeof renderArtists === 'function') {
+            renderArtists();
+        }
+        
+    } catch (error) {
+        console.error('❌ Error general:', error);
     }
 }
-
-// ===== EJECUTAR AUTOMÁTICAMENTE =====
-// Descomenta la siguiente línea para ejecutar automáticamente:
-// updateArtistImages();
-
-// ===== INSTRUCCIONES DE USO =====
-/*
-1. Reemplaza 'TU_CLIENT_ID_AQUI' con tu Client ID real
-2. Incluye este script en tu HTML después de cargar artistsData
-3. Llama a updateArtistImages() para obtener las imágenes
-4. Las imágenes se actualizarán automáticamente en tu objeto artistsData
-*/
