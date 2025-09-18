@@ -44,29 +44,44 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Funcionalidad de círculos de artistas
-    const artistCircles = document.querySelectorAll('.artist-circle');
-    
-    artistCircles.forEach(circle => {
-        circle.addEventListener('click', function() {
-            const artistName = this.dataset.artist;
-            
-            // Añadir efecto de click
-            this.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                this.style.transform = '';
-            }, 150);
-            
-            // Simular navegación a página de artista
-            setTimeout(() => {
-                alert(`Navegando a la página de ${artistName}...`);
-                // En el futuro: window.location.href = `artista.html?name=${artistName}`;
-            }, 200);
-        });
+const artistCircles = document.querySelectorAll('.artist-circle');
+
+artistCircles.forEach(circle => {
+    circle.addEventListener('click', function(e) {
+        e.preventDefault();
         
-        // Efecto hover mejorado
-        circle.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-10px) scale(1.05)';
-        });
+        const artistName = this.dataset.artist;
+        
+        // Añadir efecto de click
+        this.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            this.style.transform = '';
+        }, 150);
+        
+        // Navegación real
+        setTimeout(() => {
+            const artistUrls = {
+                'bad bunny': 'artista.html?artist=bad-bunny',
+                'drake': 'artista.html?artist=drake',
+                'tyler': 'artista.html?artist=tyler-the-creator',
+                'kendrick': 'artista.html?artist=kendrick-lamar',
+                'jorja smith': 'artista.html?artist=jorja-smith'
+            };
+            
+            const url = artistUrls[artistName.toLowerCase()] || `artista.html?artist=${artistName.toLowerCase().replace(' ', '-')}`;
+            window.location.href = url;
+        }, 200);
+    });
+    
+    // Efecto hover mejorado
+    circle.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-10px) scale(1.05)';
+    });
+    
+    circle.addEventListener('mouseleave', function() {
+        this.style.transform = '';
+    });
+});
         
         circle.addEventListener('mouseleave', function() {
             this.style.transform = '';
