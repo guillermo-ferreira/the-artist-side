@@ -36,6 +36,7 @@ function renderArtistInfo(artist) {
     if (artistImage) {
         artistImage.src = artist.image;
         artistImage.alt = artist.name;
+        aplicarImagenSpotify(artist.name, artistImage);
         artistImage.onerror = function() {
             this.src = `https://via.placeholder.com/300x300/6b46c1/ffffff?text=${encodeURIComponent(artist.name)}`;
         };
