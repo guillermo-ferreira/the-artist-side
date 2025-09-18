@@ -10,7 +10,7 @@
     "image": "https://i.imgur.com/8yZqQYx.jpg",
     "socialMedia": {
       "instagram": "@sanbenito",
-      "twitter": "@sanbenito"
+      "spotify": "https://open.spotify.com/artist/4q3ewBCX7sLwd24euuV69X?si=5HrIonVASkuV-i33TD41yA"
     },
     "featured": true,
     "recommendations": [
@@ -60,7 +60,7 @@
     "image": "https://i.imgur.com/9xK2vQp.jpg",
     "socialMedia": {
       "instagram": "@champagnepapi",
-      "twitter": "@Drake"
+      "spotify": "https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4?si=yNjvjBtpTCWDCDkD8heo4w"
     },
     "featured": true,
     "recommendations": [
@@ -110,7 +110,7 @@
     "image": "https://i.imgur.com/4kL9vQx.jpg",
     "socialMedia": {
       "instagram": "@feliciathegoat",
-      "twitter": "@tylerthecreator"
+      "spotify": "https://open.spotify.com/artist/4V8LLVI7PbaPR0K2TGSxFF?si=kG3Bp2I1TwmLTNcTac9iTg"
     },
     "featured": true,
     "recommendations": [
@@ -160,7 +160,7 @@
     "image": "https://i.imgur.com/5kL8vQx.jpg",
     "socialMedia": {
       "instagram": "@kendricklamar",
-      "twitter": "@kendricklamar"
+      "spotify": "https://open.spotify.com/artist/2YZyLoL8N0Wb9xBt1NhZWg?si=iFVTPTUORTKRx1LCupay2g"
     },
     "featured": true,
     "recommendations": [
@@ -210,7 +210,7 @@
     "image": "https://i.imgur.com/6kL9vQx.jpg",
     "socialMedia": {
       "instagram": "@jorjasmith_",
-      "twitter": "@JorjaSmith_"
+      "spotify": "https://open.spotify.com/artist/1CoZyIx7UvdxT5c8UkMzHd?si=RUvgMMnNQsCKUR08zCm6Xw"
     },
     "featured": true,
     "recommendations": [
@@ -260,7 +260,7 @@
     "image": "https://i.imgur.com/8kL6vQx.jpg",
     "socialMedia": {
       "instagram": "@rosalia.vt",
-      "twitter": "@rosalia"
+      "spotify": "https://open.spotify.com/artist/7ltDVBr6mKbRvohxheJ9h1?si=CIp8W3N0S3qEs3VywbJWlg"
     },
     "featured": true,
     "recommendations": [
@@ -299,4 +299,5 @@
       }
     ]
   }
+
 }
