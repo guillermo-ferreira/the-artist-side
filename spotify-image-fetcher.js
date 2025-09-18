@@ -72,7 +72,7 @@ class SpotifyImageFetcher {
 // ===== FUNCIÓN PARA ACTUALIZAR TUS DATOS =====
 async function updateArtistImages() {
     // ⚠️ REEMPLAZA 'TU_CLIENT_ID_AQUI' con tu Client ID real
-    const fetcher = new SpotifyImageFetcher('TU_CLIENT_ID_AQUI');
+    const fetcher = new SpotifyImageFetcher('08f380b0c88b49398011db2a8b97ce71');
     
     console.log('🎵 Obteniendo imágenes de Spotify...');
     const images = await fetcher.getAllArtistImages();
