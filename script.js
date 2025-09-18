@@ -61,14 +61,14 @@ artistCircles.forEach(circle => {
         // Navegación real
         setTimeout(() => {
             const artistUrls = {
-                'bad-bunny': 'artista.html?artist=bad-bunny',
-                'drake': 'artista.html?artist=drake',
-                'tyler': 'artista.html?artist=tyler-the-creator',
-                'kendrick': 'artista.html?artist=kendrick-lamar',
-                'jorja-smith': 'artista.html?artist=jorja-smith'
+                'bad-bunny': 'artista.html?id=bad-bunny',
+                'drake': 'artista.html?id=drake',
+                'tyler': 'artista.html?id=tyler-the-creator',
+                'kendrick': 'artista.html?id=kendrick-lamar',
+                'jorja-smith': 'artista.html?id=jorja-smith'
             };
             
-            const url = artistUrls[artistName.toLowerCase()] || `artista.html?artist=${artistName.toLowerCase().replace(' ', '-')}`;
+            const url = artistUrls[artistName.toLowerCase()] || `artista.html?id=${artistName.toLowerCase().replace(' ', '-')}`;
             window.location.href = url;
         }, 200);
     });
