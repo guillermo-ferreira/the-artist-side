@@ -27,8 +27,10 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (artistFound) {
             // Redirigir a la página del artista (por ahora mostrar alerta)
-            alert(`Redirigiendo a la página de ${searchTerm}...`);
-            // En el futuro: window.location.href = `artista.html?name=${searchTerm}`;
+            // Navegación directa unificada con el mismo parámetro que los círculos
+            const formattedSearchTerm = searchTerm.toLowerCase().replace(' ', '-');
+            window.location.href = `artista.html?id=${formattedSearchTerm}`;
+            return;
         } else {
             // Mostrar página de colaboración
             showCollaborationModal(searchTerm);
@@ -44,44 +46,39 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Funcionalidad de círculos de artistas
-const artistCircles = document.querySelectorAll('.artist-circle');
+    const artistCircles = document.querySelectorAll('.artist-circle');
 
-artistCircles.forEach(circle => {
-    circle.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const artistName = this.dataset.artist;
-        
-        // Añadir efecto de click
-        this.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-            this.style.transform = '';
-        }, 150);
-        
-        // Navegación real
-        setTimeout(() => {
-            const artistUrls = {
-                'bad-bunny': 'artista.html?id=bad-bunny',
-                'drake': 'artista.html?id=drake',
-                'tyler': 'artista.html?id=tyler-the-creator',
-                'kendrick': 'artista.html?id=kendrick-lamar',
-                'jorja-smith': 'artista.html?id=jorja-smith'
-            };
+    artistCircles.forEach(circle => {
+        circle.addEventListener('click', function(e) {
+            e.preventDefault();
             
-            const url = artistUrls[artistName.toLowerCase()] || `artista.html?id=${artistName.toLowerCase().replace(' ', '-')}`;
-            window.location.href = url;
-        }, 200);
-    });
-    
-    // Efecto hover mejorado
-    circle.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-10px) scale(1.05)';
-    });
-    
-    circle.addEventListener('mouseleave', function() {
-        this.style.transform = '';
-    });
-});
+            const artistName = this.dataset.artist;
+            
+            // Añadir efecto de click
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+            
+            // Navegación real
+            setTimeout(() => {
+                const artistUrls = {
+                    'bad-bunny': 'artista.html?id=bad-bunny',
+                    'drake': 'artista.html?id=drake',
+                    'tyler': 'artista.html?id=tyler-the-creator',
+                    'kendrick': 'artista.html?id=kendrick-lamar',
+                    'jorja-smith': 'artista.html?id=jorja-smith'
+                };
+                
+                const url = artistUrls[artistName.toLowerCase()] || `artista.html?id=${artistName.toLowerCase().replace(' ', '-')}`;
+                window.location.href = url;
+            }, 200);
+        });
+        
+        // Efecto hover mejorado
+        circle.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px) scale(1.05)';
+        });
         
         circle.addEventListener('mouseleave', function() {
             this.style.transform = '';
