@@ -1,3 +1,5 @@
+// ===== ARTISTAS.JS - VERSIÓN FINAL ESTILO SPOTIFY MINIMALISTA =====
+
 // Datos de artistas actualizados con información real
 const artistsData = {
     "bad-bunny": {
@@ -302,6 +304,8 @@ const artistsData = {
     }
 };
 
+// ===== FUNCIONES AUXILIARES =====
+
 // Función para obtener todos los artistas
 function getAllArtists() {
     return Object.values(artistsData);
@@ -317,11 +321,26 @@ function getArtistById(id) {
     return artistsData[id] || null;
 }
 
-// Función para filtrar artistas por género
+// Función para filtrar artistas por género - MEJORADA
 function getArtistsByGenre(genre) {
     if (genre === 'all') return getAllArtists();
+    
+    // Mapeo mejorado para los filtros
+    const genreMap = {
+        'hip-hop': ['Hip Hop'],
+        'reggaeton': ['Reggaeton'],
+        'r&b': ['R&B'],
+        'indie': ['Indie', 'Alternative'],
+        'mainstream': ['Pop', 'Mainstream'],
+        'flamenco': ['Flamenco Pop', 'Flamenco']
+    };
+    
+    const targetGenres = genreMap[genre.toLowerCase()] || [genre];
+    
     return Object.values(artistsData).filter(artist => 
-        artist.genre.toLowerCase().includes(genre.toLowerCase())
+        targetGenres.some(targetGenre => 
+            artist.genre.toLowerCase().includes(targetGenre.toLowerCase())
+        )
     );
 }
 
@@ -336,37 +355,56 @@ function searchArtists(query) {
     );
 }
 
-// Función para renderizar la grid de artistas
+// ===== FUNCIÓN PRINCIPAL DE RENDERIZADO - ESTILO SPOTIFY MINIMALISTA =====
 function renderArtistsGrid(artists = getAllArtists()) {
-    const grid = document.querySelector('.artists-grid');
-    if (!grid) return;
-
-    grid.innerHTML = artists.map(artist => `
-        <div class="artist-card" data-genre="${artist.genre}" onclick="goToArtist('${artist.id}')">
-            <div class="artist-image">
-                <img src="${artist.image}" alt="${artist.name}" onerror="this.src='https://via.placeholder.com/300x300/6b46c1/ffffff?text=${encodeURIComponent(artist.name)}'">
-                <div class="artist-overlay">
-                    <span class="artist-genre">${artist.genre}</span>
-                </div>
+    // Buscar el contenedor correcto
+    const container = document.querySelector('.artists-container') || 
+                     document.getElementById('artists-container');
+    const noResults = document.querySelector('.no-results') || 
+                     document.getElementById('no-results');
+    
+    if (!container) {
+        console.error('No se encontró el contenedor .artists-container');
+        return;
+    }
+    
+    // Manejar caso sin resultados
+    if (artists.length === 0) {
+        container.innerHTML = '';
+        if (noResults) noResults.style.display = 'block';
+        return;
+    }
+    
+    if (noResults) noResults.style.display = 'none';
+    
+    // Generar HTML con estructura minimalista
+    container.innerHTML = artists.map(artist => `
+        <div class="artist-card" data-genre="${artist.genre.toLowerCase()}" onclick="goToArtist('${artist.id}')">
+            <div class="artist-card-image">
+                <img src="${artist.image}" alt="${artist.name}" 
+                     onerror="this.src='https://via.placeholder.com/200x200/6b46c1/ffffff?text=${encodeURIComponent(artist.name)}'">
             </div>
-            <div class="artist-info">
-                <h3 class="artist-name">${artist.name}</h3>
-                <p class="artist-country">${artist.country}</p>
+            
+            <div class="artist-card-content">
+                <h3 class="artist-card-name">${artist.name}</h3>
             </div>
         </div>
     `).join('');
 }
 
-// Función para ir a la página del artista
+// ===== NAVEGACIÓN =====
 function goToArtist(artistId) {
     window.location.href = `artista.html?id=${artistId}`;
 }
 
-// Función para manejar filtros
+// ===== MANEJO DE FILTROS Y BÚSQUEDA - MEJORADO =====
 function handleGenreFilter() {
     const filterButtons = document.querySelectorAll('.filter-btn');
-    const searchInput = document.querySelector('.search-input');
+    const searchInput = document.querySelector('#artist-search') || 
+                       document.querySelector('.page-search') ||
+                       document.querySelector('.search-input');
 
+    // Manejar filtros por género
     filterButtons.forEach(btn => {
         btn.addEventListener('click', () => {
             // Remover clase activa de todos los botones
@@ -374,8 +412,16 @@ function handleGenreFilter() {
             // Agregar clase activa al botón clickeado
             btn.classList.add('active');
             
-            const genre = btn.dataset.genre;
-            const filteredArtists = getArtistsByGenre(genre);
+            // Obtener el filtro del data attribute
+            const genre = btn.dataset.filter || btn.dataset.genre;
+            let filteredArtists;
+            
+            if (genre === 'all') {
+                filteredArtists = getAllArtists();
+            } else {
+                filteredArtists = getArtistsByGenre(genre);
+            }
+            
             renderArtistsGrid(filteredArtists);
         });
     });
@@ -392,7 +438,8 @@ function handleGenreFilter() {
             } else {
                 renderArtistsGrid();
                 // Activar filtro "Todos"
-                const allBtn = document.querySelector('[data-genre="all"]');
+                const allBtn = document.querySelector('[data-filter="all"]') ||
+                              document.querySelector('[data-genre="all"]');
                 if (allBtn) {
                     filterButtons.forEach(b => b.classList.remove('active'));
                     allBtn.classList.add('active');
@@ -402,8 +449,10 @@ function handleGenreFilter() {
     }
 }
 
-// Inicializar cuando el DOM esté listo
+// ===== INICIALIZACIÓN =====
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('🎵 Inicializando página de artistas...');
+    
     // Renderizar grid inicial
     renderArtistsGrid();
     
@@ -411,13 +460,22 @@ document.addEventListener('DOMContentLoaded', () => {
     handleGenreFilter();
     
     // Activar filtro "Todos" por defecto
-    const allBtn = document.querySelector('[data-genre="all"]');
-    if (allBtn) allBtn.classList.add('active');
+    const allBtn = document.querySelector('[data-filter="all"]') ||
+                  document.querySelector('[data-genre="all"]');
+    if (allBtn) {
+        allBtn.classList.add('active');
+        console.log('✅ Filtro "Todos" activado por defecto');
+    }
+    
+    console.log(`✅ ${getAllArtists().length} artistas cargados`);
 });
 
-// Exportar funciones para uso global
+// ===== EXPORTAR PARA USO GLOBAL =====
 window.artistsData = artistsData;
 window.getAllArtists = getAllArtists;
 window.getFeaturedArtists = getFeaturedArtists;
 window.getArtistById = getArtistById;
 window.goToArtist = goToArtist;
+window.renderArtistsGrid = renderArtistsGrid;
+
+console.log('🎵 artistas.js cargado correctamente - Versión Spotify Minimalista');
