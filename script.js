@@ -61,11 +61,11 @@ artistCircles.forEach(circle => {
         // Navegación real
         setTimeout(() => {
             const artistUrls = {
-                'bad bunny': 'artista.html?artist=bad-bunny',
+                'bad-bunny': 'artista.html?artist=bad-bunny',
                 'drake': 'artista.html?artist=drake',
                 'tyler': 'artista.html?artist=tyler-the-creator',
                 'kendrick': 'artista.html?artist=kendrick-lamar',
-                'jorja smith': 'artista.html?artist=jorja-smith'
+                'jorja-smith': 'artista.html?artist=jorja-smith'
             };
             
             const url = artistUrls[artistName.toLowerCase()] || `artista.html?artist=${artistName.toLowerCase().replace(' ', '-')}`;
