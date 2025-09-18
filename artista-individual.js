@@ -56,9 +56,9 @@ function renderArtistInfo(artist) {
                     <i class="fab fa-instagram"></i>
                 </a>
             ` : ''}
-            ${artist.socialMedia.twitter ? `
-                <a href="https://twitter.com/${artist.socialMedia.twitter.replace('@', '')}" target="_blank" class="social-link">
-                    <i class="fab fa-twitter"></i>
+            ${artist.socialMedia.spotify ? `
+                <a href="${artist.socialMedia.spotify}" target="_blank" class="social-link">
+                    <i class="fab fa-spotify"></i>
                 </a>
             ` : ''}
         `;
