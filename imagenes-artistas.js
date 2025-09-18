@@ -8,27 +8,46 @@ const IMAGENES_SPOTIFY = {
     "Jorja Smith": "https://i.scdn.co/image/ab6761610000101fa6524d02e26778b0b99a33d5"
 };
 
+// Precargar imágenes de Spotify para mejor rendimiento
+function precargarImagenesSpotify() {
+    console.log('🚀 Precargando imágenes de Spotify...');
+    Object.values(IMAGENES_SPOTIFY).forEach(url => {
+        const img = new Image();
+        img.src = url;
+    });
+}
+
+// Ejecutar precarga inmediatamente
+precargarImagenesSpotify();
+
 // Función para obtener imagen de artista
 function obtenerImagenSpotify(nombreArtista) {
     return IMAGENES_SPOTIFY[nombreArtista] || null;
 }
 
-// Función para aplicar imagen a un elemento
+// Función para aplicar imagen a un elemento con transición suave
 function aplicarImagenSpotify(nombreArtista, elementoImg) {
     const imagenUrl = obtenerImagenSpotify(nombreArtista);
     if (imagenUrl && elementoImg) {
+        // Transición suave - ocultar mientras carga
+        elementoImg.style.opacity = '0.3';
+        elementoImg.style.transition = 'opacity 0.3s ease';
+        
         elementoImg.src = imagenUrl;
         elementoImg.alt = `Foto de ${nombreArtista}`;
         
-        // Manejar errores de carga
+        // Mostrar con transición cuando esté lista
+        elementoImg.onload = function() {
+            this.style.opacity = '1';
+            console.log(`✅ Imagen de ${nombreArtista} cargada correctamente`);
+        };
+        
+        // Restaurar opacidad si hay error
         elementoImg.onerror = function() {
+            this.style.opacity = '1';
             console.log(`Error cargando imagen de ${nombreArtista}`);
             // Opcional: imagen por defecto
             // this.src = 'assets/default-artist.jpg';
-        };
-        
-        elementoImg.onload = function() {
-            console.log(`✅ Imagen de ${nombreArtista} cargada correctamente`);
         };
     }
 }
@@ -94,11 +113,12 @@ function actualizarImagenesDesdeJSON(artistsData) {
 document.addEventListener('DOMContentLoaded', function() {
     console.log('🎵 Cargando imágenes de Spotify...');
     
+    // Reducir timeout ya que las imágenes están precargadas
     setTimeout(() => {
         actualizarImagenesSpotify();
         
         if (typeof artistsData !== 'undefined') {
             actualizarImagenesDesdeJSON(artistsData);
         }
-    }, 2000); // ← Esperar 2 segundos en lugar de 0.5
+    }, 500); // ← Reducido a 0.5 segundos gracias a la precarga
 });
